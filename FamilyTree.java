@@ -389,6 +389,12 @@ public class FamilyTree {
 			for (Person sibling : siblings) {
 				if (Gender.FEMALE.equals(sibling.getGender())) {
 					aunts.add(sibling);
+				} else {
+					Optional<Person> spouce = Optional.ofNullable(fetchSpouce(sibling.getName()));
+					if (spouce.isPresent()) {
+						aunts.add(spouce.get());
+					}
+
 				}
 			}
 		}
@@ -403,6 +409,12 @@ public class FamilyTree {
 			for (Person sibling : siblings) {
 				if (Gender.MALE.equals(sibling.getGender())) {
 					uncles.add(sibling);
+				} else {
+					Optional<Person> spouce = Optional.ofNullable(fetchSpouce(sibling.getName()));
+					if (spouce.isPresent()) {
+						uncles.add(spouce.get());
+					}
+
 				}
 			}
 		}
@@ -479,12 +491,14 @@ public class FamilyTree {
 						switch (relationType) {
 
 						case FATHER:
-							if (Optional.ofNullable(tree.fetchFather(name)).isPresent()) {
+							Optional<Person> father = Optional.ofNullable(tree.fetchFather(name));
+							if (father.isPresent()) {
 								System.out.println(relation[1] + "=" + tree.fetchFather(name).getName());
 							}
 							break;
 						case MOTHER:
-							if (Optional.ofNullable(tree.fetchMother(name)).isPresent()) {
+							Optional<Person> mother = Optional.ofNullable(tree.fetchMother(name));
+							if (mother.isPresent()) {
 								System.out.println(relation[1] + "=" + tree.fetchMother(name).getName());
 							}
 							break;
@@ -509,12 +523,14 @@ public class FamilyTree {
 									.collect(Collectors.joining(",")));
 							break;
 						case GRANDMOTHER:
-							if (Optional.ofNullable(tree.fetchGrandMother(name)).isPresent()) {
+							Optional<Person> grandMother = Optional.ofNullable(tree.fetchGrandMother(name));
+							if (grandMother.isPresent()) {
 								System.out.println(relation[1] + "=" + tree.fetchGrandMother(name).getName());
 							}
 							break;
 						case GRANDFATHER:
-							if (Optional.ofNullable(tree.fetchGrandFather(name)).isPresent()) {
+							Optional<Person> grandFather = Optional.ofNullable(tree.fetchGrandFather(name));
+							if (grandFather.isPresent()) {
 								System.out.println(relation[1] + "=" + tree.fetchGrandFather(name).getName());
 							}
 							break;
@@ -536,7 +552,8 @@ public class FamilyTree {
 							break;
 						case HUSBAND:
 						case WIFE:
-							if (Optional.ofNullable(tree.fetchSpouce(name)).isPresent()) {
+							Optional<Person> spouce = Optional.ofNullable(tree.fetchSpouce(name));
+							if (spouce.isPresent()) {
 								System.out.println(relation[1] + "=" + tree.fetchSpouce(name).getName());
 							}
 							break;

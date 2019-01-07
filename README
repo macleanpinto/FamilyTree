@@ -10,9 +10,6 @@ java  FamilyTree
 
 ````
 
-#### Note :
-
-**Exclusion Service is a Stubbed service to blacklist all user's with SSN greater than 555555555**
 
 
 

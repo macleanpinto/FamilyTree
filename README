@@ -7,6 +7,7 @@ Run the following command to start the project.
 ```
 javac FamilyTree.java
 java  FamilyTree
+
 ```
 
 #### Note :

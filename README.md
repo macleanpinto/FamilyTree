@@ -10,7 +10,7 @@ java  FamilyTree
 
 ````
 
-# Minimum JDK version required is 8.
+### Minimum JDK version required is Java SE 8.
 
 
 

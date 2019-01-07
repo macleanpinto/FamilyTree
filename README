@@ -5,10 +5,10 @@
 Run the following command to start the project.
 
 ```
-mvn clean install
-cd AppWeb/target
-java -jar AppWeb-1.0.0-SNAPSHOT.jar
-```
+javac FamilyTree.java
+java  FamilyTree
+
+````
 
 #### Note :
 
